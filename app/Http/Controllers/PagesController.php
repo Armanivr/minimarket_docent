@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
@@ -14,19 +14,8 @@ class PagesController extends Controller
         return view('home', ['products' => $products]);
     }
 
-    public function aanbod()
-    {
-        $product = Product::all();
-        return view('aanbod', ['products' => Product::all()]);
-    }
 
-    public function recent()
-    {
+    public function recent() {
         return view('recent');
-    }
-
-    public function contact()
-    {
-        return view('contact');
     }
 }

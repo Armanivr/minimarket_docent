@@ -1,16 +1,16 @@
 <?php
 
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProductsController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Http\Controllers\PagesController;
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
-
 Route::get('/aanbod', [PagesController::class, 'aanbod'])->name('aanbod');
-
 Route::get('/recent', [PagesController::class, 'recent'])->name('recent');
 
-Route::get( '/contact' , [PagesController::class, 'contact' ])->name('contact');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -18,6 +18,8 @@ Route::view('dashboard', 'dashboard')
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
+
+    Route::resource('products', ProductsController::class);
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');

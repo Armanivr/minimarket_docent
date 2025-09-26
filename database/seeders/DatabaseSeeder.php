@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,20 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Ensure we have a batch of users first
-        $this->call(UserSeeder::class);
-
-        // Idempotent seed for a known test account
-        User::updateOrCreate(
-            ['email' => 'test@example.com'],
-            [
-                'name' => 'Test User',
-                'email_verified_at' => now(),
-                'password' => Hash::make('password'),
-                'remember_token' => Str::random(10),
-            ]
-        );
-
-        $this->call(ProductSeeder::class);
+        User::factory(100)->create();
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+        Product::factory(10000)->create();
     }
 }
