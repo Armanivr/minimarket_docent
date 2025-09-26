@@ -12,17 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
+            $table->id(); 
             $table->string('name');
             $table->decimal('start_price', 8, 2);
             $table->text('description')->nullable();
             $table->string('image_url')->nullable();
             $table->enum('status', ['Nieuwstaat', 'Tweedehands'])->default('Nieuwstaat');
-
             $table->foreignId('verkocht_aan')->nullable()->references('id')->on('users');
-
-
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

@@ -11,6 +11,8 @@
             <flux:navbar.item href="/">Home</flux:navbar.item>
             <flux:navbar.item href="/aanbod">Aanbod</flux:navbar.item>
             <flux:navbar.item href="/recent">Recent</flux:navbar.item>
+            <flux:navbar.item href="/contact">Contact</flux:navbar.item>
+            <flux:navbar.item href="/dashboard">Dashboard</flux:navbar.item>
         </flux:navbar>
     </header>
     <main class="w-4/5 mx-auto">

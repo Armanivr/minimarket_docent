@@ -2,18 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Http\Controllers\PagesController;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [PagesController::class, 'home'])->name('home');
 
-Route::get('/aanbod', function () {
-    return view('aanbod');
-})->name('aanbod');
+Route::get('/aanbod', [PagesController::class, 'aanbod'])->name('aanbod');
 
-Route::get('/recent', function () {
-    return view('recent');
-})->name('recent');
+Route::get('/recent', [PagesController::class, 'recent'])->name('recent');
+
+Route::get( '/contact' , [PagesController::class, 'contact' ])->name('contact');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
