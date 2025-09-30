@@ -23,8 +23,7 @@ class ProductFactory extends Factory
             'description' => fake()->sentence(),
             'image_url' => fake()->imageUrl(),
             'status' => fake()->randomElement(['Nieuwstaat', 'Tweedehands']),
-            'sold_to' => fake()->optional()->numberBetween(1, User::count()),
-            'created_at' => now(),
+            'sold_to' => User::inRandomOrder()->first()?->id,
             'updated_at' => now(),
         ];
     }

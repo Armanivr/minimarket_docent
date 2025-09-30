@@ -5,7 +5,6 @@ use App\Http\Controllers\ProductsController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
-use App\Http\Controllers\PagesController;
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/aanbod', [PagesController::class, 'aanbod'])->name('aanbod');

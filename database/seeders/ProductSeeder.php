@@ -21,6 +21,7 @@ class ProductSeeder extends Seeder
                 'description' => $faker->sentence,
                 'image_url' => $faker->imageUrl(),
                 'status' => $faker->randomElement(['Nieuwstaat', 'Tweedehands']),
+                'sold_to' => User::inRandomOrder()->first()?->id, 
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
